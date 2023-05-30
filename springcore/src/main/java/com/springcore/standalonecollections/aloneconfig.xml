@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/util
+    http://www.springframework.org/schema/util/spring-util.xsd">
+
+      <!-- stand alone list -->
+      <util:list list-class="java.util.LinkedList" id = "mybestfriends">
+      <value>Abhishek M.R</value>
+      <value>Pavan Kalyan Boddu</value>
+      <value>Prasanjit Kund</value>
+      <value>Bishnu Nayak</value>
+      <value>Sashi Kiran </value>
+      
+      </util:list>
+      
+      <!-- stand alone map -->
+      <util:map map-class="java.util.HashMap" id = "coursefee">
+      
+      <entry key="Spring Framework" value="8000" />
+      <entry key="Django Framework" value="5000" />
+      <entry key="Hibernate Framework" value="2000" />
+      <entry key="React.js" value="12000" />
+      <entry key="Node.js" value="10000" />
+      
+      </util:map >
+      
+      
+      <!-- stand alone properties -->
+      <util:properties id="dbConfig">
+      <prop key="driver">com.mySql.jdbc.Driver</prop>
+      <prop key="username">Prakash</prop>
+      <prop key="password">Singh</prop>
+      <prop key="url">mySql:jdbc://localhost//3306</prop>
+      </util:properties>
+      
+	<bean class="com.springcore.standalonecollections.Person" name="person1">
+
+        <!--  
+		<property name="friends">
+		   <ref bean= "mybestfriends" />
+		</property>
+		-->
+		
+		<property name = "friends" ref = "mybestfriends" /> 
+		
+		<property name="feestructure" ref = "coursefee" ></property>
+		
+		<property name="properties" ref = "dbConfig"></property>
+		
+	</bean>
+
+</beans>
